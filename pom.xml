@@ -223,6 +223,20 @@
       <plugin>
         <groupId>org.graalvm.buildtools</groupId>
         <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <skipTests>true</skipTests>
+          <mainClass>org.springframework.samples.petclinic.PetClinicApplication</mainClass>
+          <imageName>petclinic</imageName>
+          <buildArgs>-Ob,-g,--verbose,-H:+ReportExceptionStackTraces</buildArgs>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
